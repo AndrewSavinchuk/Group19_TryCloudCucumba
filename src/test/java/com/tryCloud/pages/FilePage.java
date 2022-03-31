@@ -26,6 +26,9 @@ public class FilePage {
 
     @FindBy (xpath = "//li[@class=' action-delete-container']/a") public WebElement optionDelete;
 
+    @FindBy(xpath ="//*[@for='select_all_files']" ) public WebElement TopLeftCheckbox;
+    @FindBy (xpath = "//tbody/tr") public List<WebElement> listCheckboxes;
+
     public static void clickSubModule(String module){
         WebElement element = Driver.getDriver().findElement(By.xpath("//div[@id='app-navigation']//*[normalize-space(.)='"+module+"']"));
         BrowserUtils.highlight(element);
