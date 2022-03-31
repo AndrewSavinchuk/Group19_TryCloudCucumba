@@ -37,7 +37,7 @@ public class FilePage {
     @FindBy (xpath = "//div[@id='uploadprogressbar']") public WebElement uploadBar;
     @FindBy (xpath = "//div[@class='toastify on dialogs error toastify-right toastify-top']/span") public WebElement notEnoughSpaceBtn;
 
-    @FindBy (xpath = "//li[@class=' action-delete-container']") public WebElement optionDelete;
+    @FindBy (xpath = "//li[@class=' action-delete-container']/a") public WebElement optionDelete;
 
     // Holder for actual file name
     private static String fileNameH;
@@ -56,7 +56,6 @@ public class FilePage {
     }
 
     public static void clickSubModule(String module){
-
         WebElement element = Driver.getDriver().findElement(By.xpath("//div[@id='app-navigation']//*[normalize-space(.)='"+module+"']"));
         BrowserUtils.highlight(element);
         element.click();

@@ -1,6 +1,7 @@
 package com.tryCloud.runners;
 
 import com.tryCloud.pages.FilePage;
+import com.tryCloud.utilities.BrowserUtils;
 import com.tryCloud.utilities.ConfigurationReader;
 import com.tryCloud.utilities.Driver;
 import com.tryCloud.utilities.TryCloudUtils;
@@ -28,5 +29,6 @@ public class Base_Steps {
     @When("user refresh the page")
     public void user_refresh_the_page() {
         Driver.getDriver().navigate().refresh();
+        BrowserUtils.waitForPageToLoad(10);
     }
 }
