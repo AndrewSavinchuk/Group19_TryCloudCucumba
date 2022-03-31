@@ -1,4 +1,4 @@
-package com.tryCloud.runners;
+package com.tryCloud.step_definitions;
 
 import com.tryCloud.pages.FilePage;
 import com.tryCloud.utilities.BrowserUtils;
