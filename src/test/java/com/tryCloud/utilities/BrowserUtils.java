@@ -332,16 +332,6 @@ public class BrowserUtils {
     }
 
     /**
-     * Highlighs an element by changing its background and border color
-     * @param element
-     */
-    public static void highlight(WebElement element) {
-        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].setAttribute('style', 'background: yellow; border: 2px solid red;');", element);
-        waitFor(1);
-        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].removeAttribute('style', 'background: yellow; border: 2px solid red;');", element);
-    }
-
-    /**
      * Checks or unchecks given checkbox
      *
      * @param element
@@ -437,6 +427,20 @@ public class BrowserUtils {
         new WebDriverWait(Driver.getDriver(), time).until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
+    public static void highlight(WebElement element){
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), ConfigurationReader.getNumber("timeout"));
+        wait.until(ExpectedConditions.visibilityOf(element));
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) Driver.getDriver();
+
+        jsExecutor.executeScript("arguments[0].style.border='3px solid orange'", element);
+        jsExecutor.executeScript("arguments[0].style.backgroundColor='yellow'", element);
+        jsExecutor.executeScript("arguments[0].style.color='black'", element);
+        //BrowserUtils.sleep(0.5);
+
+        jsExecutor.executeScript("arguments[0].style.backgroundColor=''", element);
+        jsExecutor.executeScript("arguments[0].style.border='0px solid black'", element);
+        jsExecutor.executeScript("arguments[0].style.color=''", element);
+    }
 
 
 
