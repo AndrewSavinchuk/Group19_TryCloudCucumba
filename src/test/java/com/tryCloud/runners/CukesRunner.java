@@ -16,11 +16,10 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/tryCloud/step_definitions",
         dryRun = false,
-        tags = "",
+        tags = "@smoke",
         publish = false
 
 )
-
 
 public class CukesRunner {
 }
