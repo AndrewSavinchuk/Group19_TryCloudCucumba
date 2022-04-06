@@ -17,6 +17,7 @@ public class US_05_FavoriteStepDefs {
         BrowserUtils.hover(filePage.actionIcon);
         filePage.actionIcon.click();
     }
+
     @And("user choose the {string} option")
     public void user_choose_the_option(String option) {
 
@@ -33,11 +34,7 @@ public class US_05_FavoriteStepDefs {
             BrowserUtils.sleep(2);
         }
     }
-    @And("user click the {string} sub-module")
-    public void user_click_the_sub_module(String subModule) {
-        FilePage.clickSubModule(subModule);
 
-    }
     @Then("Verify the chosen file is listed on the table")
     public void verify_the_chosen_file_is_listed_on_the_table() {
         BrowserUtils.sleep(1);
