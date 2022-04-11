@@ -16,8 +16,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/tryCloud/step_definitions",
         dryRun = false,
-        tags = "@us_05",
-        publish = true
+        tags = "",
+        publish = false
 
 )
 
