@@ -108,7 +108,6 @@ public class US_7_Managing_Folder_Files {
         //deleting folder, next time we run @US19-172 it will not give an error with the folder of
         //same name "Developer"
         newFolderPage.allFilesButton.click();
-        BrowserUtils.sleep(2);
 
         WebElement developerFolder = Driver.getDriver().findElement(By.xpath("//span[@class='innernametext' and .='"+name+"']"));
 
