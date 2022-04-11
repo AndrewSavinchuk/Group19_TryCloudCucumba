@@ -105,7 +105,8 @@ public class US_7_Managing_Folder_Files {
         BrowserUtils.sleep(3);
         Assert.assertTrue(uploadedFile.isDisplayed());
 
-        //deleting folder
+        //deleting folder, next time we run @US19-172 it will not give an error with the folder of
+        //same name "Developer"
         newFolderPage.allFilesButton.click();
         BrowserUtils.sleep(2);
 
@@ -113,8 +114,5 @@ public class US_7_Managing_Folder_Files {
 
         actions.contextClick(developerFolder).perform();
         filesPage.deleteFolder.click();
-
-        //Assert.assertFalse(developerFolder.isDisplayed());
-
     }
 }
