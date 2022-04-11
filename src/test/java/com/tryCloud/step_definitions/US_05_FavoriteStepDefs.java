@@ -1,5 +1,6 @@
 package com.tryCloud.step_definitions;
 
+import com.tryCloud.pages.CommentsPage;
 import com.tryCloud.pages.FilePage;
 import com.tryCloud.utilities.BrowserUtils;
 import io.cucumber.java.en.And;
@@ -9,6 +10,7 @@ import org.junit.Assert;
 
 
 public class US_05_FavoriteStepDefs {
+    CommentsPage commentsUS09 = new CommentsPage();
     FilePage filePage = new FilePage();
     String chosenFileName;
 
@@ -28,6 +30,8 @@ public class US_05_FavoriteStepDefs {
             BrowserUtils.sleep(2);
             chosenFileName = filePage.currentFileName.getText();
             filePage.addToFavOpt.click();
+        }else if(option.contains("Details")){
+              commentsUS09.details.click();
         } else {
             chosenFileName = filePage.currentFileName.getText();
             filePage.addToFavOpt.click();
