@@ -16,23 +16,63 @@ public class FilePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy (xpath = "//*[@class='button new']") public WebElement addNewFileBtn;
-    @FindBy (xpath = "//input[@id='file_upload_start']") public WebElement upload;
-    @FindBy (xpath = "//div[@id='app-settings-content']//input[@type='checkbox']//following-sibling::label") public List<WebElement> settingsCheckboxesBtn;
-    @FindBy (xpath = "//div[@id='app-settings-content']//input[@type='checkbox']") public List<WebElement> settingsCheckboxes;
-    @FindBy (xpath = "//p[contains(text(),'used')]") public WebElement storageStatus;
-    @FindBy (xpath = "//div[@id='uploadprogressbar']") public WebElement uploadBar;
-    @FindBy (xpath = "//div[@class='toastify on dialogs error toastify-right toastify-top']/span") public WebElement notEnoughSpaceBtn;
+    @FindBy (xpath = "//*[@class='button new']")
+    public WebElement addNewFileBtn;
 
-    @FindBy (xpath = "//li[@class=' action-delete-container']/a") public WebElement optionDelete;
+    @FindBy (xpath = "//input[@id='file_upload_start']")
+    public WebElement upload;
 
-    @FindBy(xpath ="//*[@for='select_all_files']" ) public WebElement TopLeftCheckbox;
-    @FindBy (xpath = "//tbody/tr") public List<WebElement> listCheckboxes;
+    @FindBy (xpath = "//div[@id='app-settings-content']//input[@type='checkbox']//following-sibling::label")
+    public List<WebElement> settingsCheckboxesBtn;
+
+    @FindBy (xpath = "//div[@id='app-settings-content']//input[@type='checkbox']")
+    public List<WebElement> settingsCheckboxes;
+
+    @FindBy (xpath = "//p[contains(text(),'used')]")
+    public WebElement storageStatus;
+
+    @FindBy (xpath = "//div[@id='uploadprogressbar']")
+    public WebElement uploadBar;
+
+    @FindBy (xpath = "//div[@class='toastify on dialogs error toastify-right toastify-top']/span")
+    public WebElement notEnoughSpaceBtn;
+
+    @FindBy (xpath = "//li[@class=' action-delete-container']/a")
+    public WebElement optionDelete;
+
+    @FindBy(xpath ="//*[@for='select_all_files']" )
+    public WebElement TopLeftCheckbox;
+
+    @FindBy (xpath = "//tbody/tr")
+    public List<WebElement> listCheckboxes;
+
+    @FindBy (xpath = "//tr[1]//a[@data-action='menu']") public WebElement triDots;
+
+    @FindBy(xpath = "//span[. = 'Delete folder']" )
+    public WebElement deleteFile;
+
+    @FindBy(xpath = "//a[. = 'Deleted files']")
+    public WebElement deletedFiles;
+
+    @FindBy (xpath = "(//a[@class='action action-restore permanent'])[1]")
+    public WebElement restoreBtn;
+
+    @FindBy (xpath = "//tr[1]//span[@class='innernametext']")
+    public WebElement fileName;
 
     public static void clickSubModule(String module){
         WebElement element = Driver.getDriver().findElement(By.xpath("//div[@id='app-navigation']//*[normalize-space(.)='"+module+"']"));
         BrowserUtils.highlight(element);
         element.click();
         BrowserUtils.waitForPageToLoad(ConfigurationReader.getNumber("timeout"));
+    }
+
+    // Holder for actual file name
+    private static String fileNameH;
+    public static String getFileNameHolder() {
+        return fileNameH;
+    }
+    public static void setFileNameHolder(String fileNameHolder) {
+        fileNameH = fileNameHolder;
     }
 }
