@@ -14,19 +14,10 @@ public class US_8_Delete_Files_StepDefs {
     FilePage filePage = new FilePage();
     String fileName;
 
-    @When("user click action-icon from any file on the page")
-    public void user_click_action_icon_from_any_file_on_the_page() {
-        filePage.triDots.click();
-
-    }
-
-    @When("user choose the {string} option")
+    @When("user choose the {string} options")
     public void user_choose_the_option(String string) {
-
         fileName = filePage.fileName.getText();
-
         filePage.deleteFile.click();
-
     }
 
     @When("the user clicks the {string} sub-module on the left side")
@@ -37,8 +28,7 @@ public class US_8_Delete_Files_StepDefs {
 
     @Then("Verify the deleted file is displayed on the page")
     public void verify_the_deleted_file_is_displayed_on_the_page() {
-
-
+        BrowserUtils.sleep(2);
         WebElement element = Driver.getDriver().findElement(By.xpath("(//td//*[.='" + fileName + "'])[1]"));
         BrowserUtils.highlight(element);
         Assert.assertTrue(element.isDisplayed());
