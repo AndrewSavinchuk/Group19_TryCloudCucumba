@@ -25,7 +25,13 @@ public class FilePage {
     @FindBy (xpath = "//div[@class='toastify on dialogs error toastify-right toastify-top']/span") public WebElement notEnoughSpaceBtn;
     @FindBy (xpath = "//li[@class=' action-delete-container']/a") public WebElement optionDelete;
     @FindBy(xpath ="//*[@for='select_all_files']" ) public WebElement TopLeftCheckbox;
-    @FindBy (xpath = "//tbody/tr") public List<WebElement> listCheckboxes;
+    @FindBy (xpath = "//tbody/tr") public List<WebElement> listCheckboxes;  
+  
+    @FindBy (xpath = "//tr[1]//span[@class='innernametext']") public WebElement fileName;
+    @FindBy (xpath = "(//a[@class='action action-restore permanent'])[1]") public WebElement restoreBtn;
+    @FindBy(xpath = "//a[. = 'Deleted files']") public WebElement deletedFiles; 
+    @FindBy(xpath = "//span[. = 'Delete folder']" ) public WebElement deleteFile;
+    @FindBy (xpath = "//tr[1]//a[@data-action='menu']") public WebElement triDots;
 
 
     @FindBy(xpath = "//*[@for='select_all_files']") public WebElement mainCheckbox;
@@ -46,6 +52,7 @@ public class FilePage {
         element.click();
         BrowserUtils.waitForPageToLoad(ConfigurationReader.getNumber("timeout"));
     }
+
 
     public static void navigateTo(String moduleName) {
         WebElement moduleLink = Driver.getDriver().findElement(By.xpath("//ul[@id='appmenu']//a[@aria-label='" + moduleName + "']"));
