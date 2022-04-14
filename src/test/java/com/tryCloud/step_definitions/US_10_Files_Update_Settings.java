@@ -17,7 +17,7 @@ public class US_10_Files_Update_Settings {
     FilePage filePage = new FilePage();
     UploadFilesPage uploadFilesPage = new UploadFilesPage();
     // Getting system working directory
-    String systemPath = System.getProperty("user.dir");
+
 
 
     @When("the user clicks the add icon on the top")
@@ -47,7 +47,10 @@ public class US_10_Files_Update_Settings {
 
     @When("user uploads file3 with the upload file option")
     public void user_uploads_file_with_the_upload_file_option() {
-        String filePath = systemPath+"\\src\\test\\resources\\files\\testing.png";
+        String systemPath = System.getProperty("user.dir");
+        String filePath = systemPath+"/src/test/resources/files/testing.png";
+        System.out.println("systemPath = " + systemPath);
+        System.out.println("filePath = " + filePath);
         BrowserUtils.waitForPageToLoad(ConfigurationReader.getNumber("timeout"));
         filePage.upload.sendKeys(filePath);
         filePage.addNewFileBtn.click();
